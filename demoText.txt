@@ -1,0 +1,20 @@
+to create venv virtual env:
+conda create -p venv python==3.8 -y
+
+to activate the venv 
+conda activate venv/
+
+then use git commands to clone and push
+
+git init
+git commit -m "First Commit"
+git branch -M main 
+git remote add origin https://github.com/vanshuwjoshi/MLProjects.git
+git push -u origin main
+
+then create a .gitignore file in github for python
+to update our local evn we can use "git pull". This will add .gitignore file in our system as well
+
+Create two new files: setup.py and requirement.txt
+requirement.txt will have all the packages that we need to install.
+and with setup.py we will be able to build our ML app as a package.
