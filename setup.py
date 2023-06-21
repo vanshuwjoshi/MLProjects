@@ -9,10 +9,10 @@ def get_requirements(file_path: str) -> List[str]:
     requirements = []
     with open(file_path) as file_obj:
         requirements = file_obj.readlines()
-        requirements = [req.replace("\n", "") for req in requirements]
+        requirements = [req.replace("\n", "") for req in requirements] #since when we read the text file \n will also get inserted to our list 
 
         if "-e ." in requirements:
-            requirements.remove("-e .")
+            requirements.remove("-e .") # we also dont want "-e ." in our list of requirements
 
     return requirements
 
