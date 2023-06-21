@@ -32,3 +32,6 @@ Now "pip install -r requirement.txt" this will install all the packages in requi
 Now commit and push your changes.
 
 #################################################################################################################
+
+Day 2:
+Create folder for components (inside: __init__, data_ingestion, data_transformation, model_trainer), pipeline (inside: __init__,predict_pipeline, train_pipeline), and inside src folder create exception, utils and logger and write the similar code as written. 
