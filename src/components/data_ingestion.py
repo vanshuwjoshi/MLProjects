@@ -1,4 +1,4 @@
-# main aim of this file is to read the data from various data sources like local storage, mongodb, hadoop and many more
+# main aim of this file is to read the data from various data sources like local storage, mongodb, hadoop and many more and do the train test split
 import os
 import sys
 from src.exception import CustomException
@@ -71,5 +71,6 @@ if __name__ == "__main__":
     obj = DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
 
+    # call the data transformation on the train_data and test_data and call the initiate function
     data_transformation = DataTransformation()
     data_transformation.initiate_data_transformation(train_data,test_data)
