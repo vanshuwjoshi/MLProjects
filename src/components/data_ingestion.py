@@ -10,6 +10,9 @@ from dataclasses import dataclass  # used to create class variables
 
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
+
 
 # for data ingestion we need input like the location for saving the training, test and complete data
 # this class will help with that
@@ -69,8 +72,15 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
-    train_data,test_data=obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
 
     # call the data transformation on the train_data and test_data and call the initiate function
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    train_array, test_array, _ = data_transformation.initiate_data_transformation(
+        train_data, test_data
+    )
+    # call the ModelTrainer function on the above train_array and test_array and get the maximum R2 score of the model
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_training(
+        train_array=train_array, test_array=test_array
+    ))
