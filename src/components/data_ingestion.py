@@ -1,4 +1,6 @@
 # main aim of this file is to read the data from various data sources like local storage, mongodb, hadoop and many more and do the train test split
+# we run this file to execute our code
+# RUN USING python -m src.components.data_ingestion
 import os
 import sys
 from src.exception import CustomException
