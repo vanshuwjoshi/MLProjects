@@ -1,0 +1,52 @@
+Day 1: Setup with github:
+
+to create venv virtual env:
+conda create -p venv python==3.8 -y
+
+to activate the venv 
+conda activate venv/
+
+then use git commands to clone and push
+
+git init
+git commit -m "First Commit"
+git branch -M main 
+git remote add origin https://github.com/vanshuwjoshi/MLProjects.git
+git push -u origin main
+
+then create a .gitignore file in github for python
+to update our local evn we can use "git pull". This will add .gitignore file in our system as well
+
+Create two new files: setup.py and requirement.txt
+requirement.txt will have all the packages that we need to install.
+and with setup.py we will be able to build our ML app as a package.
+
+Inside requirement.txt write down the packages required and at the end write "-e ." this will trigger the setup.py 
+
+Complete the setup.py as done
+
+Create a src folder and create a __init__.py file as well.
+
+Now "pip install -r requirement.txt" this will install all the packages in requirement.txt and trigger the setup.py file to make our project as a package.
+
+Now commit and push your changes.
+
+#################################################################################################################
+
+Create folder for components (inside: __init__, data_ingestion, data_transformation, model_trainer), pipeline (inside: __init__,predict_pipeline, train_pipeline), and inside src folder create exception, utils and logger and write the similar code as written. 
+
+#################################################################################################################
+
+src/components:
+data_ingestion.py - we read the data from the particular data scource like local storage (in this case), mongodb, hadoop & more. Then we split the data into train and test and save these datas into the folder "artifact"
+
+data_transformation.py - feature engineering, data cleaning, categorical features converted to numerical features. From the training and test data in the above file we do the data transformation by creating pipeline and then returning the transformed training and test arrays (with last column as the traget variable) and save the preprocessor as pickle file in "artifact" (also use the utils.py)
+
+model_trainer.py - fit the appropriate model to our transformed data in the data_transformation.py file. Split the datas into X and y and then apply all the ML models in a pipeline and pick the best model (here we use R2). Also can do the Hyperparameter tuning for each model (also use the utils.py). Save the model as pickle file in "artifact" folder
+
+Run the data_ingestion.py file to initate data transformation and model trainer as well using "python -m src.components.data_ingestion"
+
+#################################################################################################################
+
+src/pipeline:
+predict_pipeline - we need to create a web application which will be interacting with the pickle files in the "artifact" folder
