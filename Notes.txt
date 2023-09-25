@@ -55,3 +55,10 @@ predict_pipeline - we need to create a web application which will be interacting
 #################################################################################################################
 
 app.py - To create a web application in which we will fill out the details and predict the math score using Flask
+
+#################################################################################################################
+
+Deployment on AWS - 
+
+- Create a AWS Elastic Beanstalk which require python.config (we created it in .ebextension folder)
+- Create a Code Pipeline (present in AWS) which integrate with the Github Repo where we save our code (this is called CONTINUOUS DELIVERY)
