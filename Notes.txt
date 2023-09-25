@@ -49,4 +49,9 @@ Run the data_ingestion.py file to initate data transformation and model trainer 
 #################################################################################################################
 
 src/pipeline:
-predict_pipeline - we need to create a web application which will be interacting with the pickle files in the "artifact" folder
+predict_pipeline - we need to create a web application which will be interacting with the pickle files in the "artifact" folder. We create two classes PredictPipeline and CustomData.
+
+
+#################################################################################################################
+
+app.py - To create a web application in which we will fill out the details and predict the math score using Flask
