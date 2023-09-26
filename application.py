@@ -3,18 +3,17 @@
 from flask import Flask, request, render_template
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
-application = Flask(__name__)
-app = application
+application = app = Flask(__name__)
 
 
 # Index page
-@app.route("/")
+@application.route("/")
 def index():
     return render_template("index.html")
 
 
 # Prediction page
-@app.route("/predict", methods=["GET", "POST"])
+@application.route("/predict", methods=["GET", "POST"])
 def predict_data():
     # for GET method show the home page (without any predicted score)
     if request.method == "GET":
@@ -43,4 +42,4 @@ def predict_data():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    application.run(host="0.0.0.0")
