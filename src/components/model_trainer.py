@@ -3,10 +3,10 @@ import os
 import sys
 from dataclasses import dataclass
 
-from catboost import CatBoostRegressor
+# from catboost import CatBoostRegressor
 from sklearn.ensemble import (
     AdaBoostRegressor,
-    GradientBoostRegressor,
+    GradientBoostingRegressor,
     RandomForestRegressor,
 )
 from sklearn.linear_model import LinearRegression
@@ -45,11 +45,11 @@ class ModelTrainer:
             models = {
                 "Random Forest": RandomForestRegressor(),
                 "Decision Tree": DecisionTreeRegressor(),
-                "Gradient Boosting": GradientBoostRegressor(),
+                "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
                 "K-Nearest Neighbors": KNeighborsRegressor(),
                 "XG-Boost Classsifier": XGBRegressor(),
-                "CatBoosting Classifier": CatBoostRegressor(),
+                # "CatBoosting Classifier": CatBoostRegressor(),
                 "AdaBoost Classifier": AdaBoostRegressor(),
             }
 
@@ -80,15 +80,15 @@ class ModelTrainer:
                 },
                 "Linear Regression": {},
                 "K-Nearest Neighbors": {},
-                "XGBRegressor": {
+                "XG-Boost Classsifier": {
                     "learning_rate": [0.1, 0.01, 0.05, 0.001],
                     "n_estimators": [8, 16, 32, 64, 128, 256],
                 },
-                "CatBoosting Regressor": {
-                    "depth": [6, 8, 10],
-                    "learning_rate": [0.01, 0.05, 0.1],
-                    "iterations": [30, 50, 100],
-                },
+                # "CatBoosting Classsifier": {
+                #     "depth": [6, 8, 10],
+                #     "learning_rate": [0.01, 0.05, 0.1],
+                #     "iterations": [30, 50, 100],
+                # },
                 "AdaBoost Classifier": {
                     "learning_rate": [0.1, 0.01, 0.5, 0.001],
                     # 'loss':['linear','square','exponential'],
